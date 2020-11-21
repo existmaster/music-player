@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+//@RestController
 @RequestMapping("/artists")
 public class ArtistController {
 
@@ -16,11 +16,16 @@ public class ArtistController {
     private ArtistRepository ar;
 
     @GetMapping
-    public List<Artist> getArtists(){
+    public List<Artist> getArtists(@RequestParam(required = false) String name){
         //DB에서 아티스트 정보를 받아와야 함
         //1. DB에 접속
         //2. 정보를 받아야 함
-        return ar.findAll();
+        if(name == null){
+            return ar.findAll();
+        } else {
+            return ar.findmmmmmm(name);
+        }
+
     }
 
     @GetMapping("/{id}")

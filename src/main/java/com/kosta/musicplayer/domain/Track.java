@@ -7,12 +7,10 @@ import javax.persistence.*;
 @Entity
 @Data
 public class Track {
-    @Id
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     @Column(length = 80)
     private String title;
-
-    //private String albumTitle;
 
     @ManyToOne
     @JoinColumn(name = "ALBUM_ID")
