@@ -23,7 +23,7 @@ public class ArtistController {
         if(name == null){
             return ar.findAll();
         } else {
-            return ar.findmmmmmm(name);
+            return ar.findByName(name);
         }
 
     }
